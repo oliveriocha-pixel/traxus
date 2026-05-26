@@ -2,110 +2,100 @@ import Link from "next/link"
 
 const cases = [
   {
-    type: "Cámara de Refrigeración",
-    title: "Operador de logística alimentaria — Noreste",
-    desc: "Cámara de −22 °C, 8,400 m², Logislab® Freeze. Eliminación total del ciclo de resellados que el operador realizaba dos veces por año.",
-    stats: [
-      { value: "8,400", label: "m² construidos" },
-      { value: "0", label: "Juntas de control" },
-      { value: "−22 °C", label: "Temperatura operación" },
-    ],
-    color: "blue",
-    href: "/casos",
+    name: "Centro Refrigerado Bajío",
+    subtitle: "Cadena fría — Toluca",
+    text: "Piso industrial para exposición continua a humedad, bajas temperaturas y tráfico intensivo en áreas de refrigeración y congelación.",
+    applications: ["Cold storage", "Cámaras de refrigeración", "Cadena fría"],
+    color: "freeze",
   },
   {
-    type: "Centro de Distribución",
-    title: "Desarrollador logístico — Bajío",
-    desc: "CEDI 18,000 m² con sistema AutoStore integrado. FF54 certificado en toda la superficie. Entrega en 11 semanas.",
-    stats: [
-      { value: "18,000", label: "m² construidos" },
-      { value: "FF54", label: "Planicidad medida" },
-      { value: "11 sem", label: "Plazo de entrega" },
-    ],
-    color: "amber",
-    href: "/casos",
-  },
-  {
-    type: "Almacén VNA",
-    title: "Operador 3PL — ZMCDMX",
-    desc: "Almacén VNA 6,200 m² con trilaterales a 14 m de altura. Criterios Fmin certificados por pasillo en 72 horas post-colado.",
-    stats: [
-      { value: "6,200", label: "m² construidos" },
-      { value: "14 m", label: "Altura de rack" },
-      { value: "Fmin", label: "Certificado por pasillo" },
-    ],
+    name: "Centro Logístico Norte",
+    subtitle: "Alta densidad — Estado de México",
+    text: "Superficie industrial para almacenamiento de alta densidad, tráfico repetitivo de montacargas y operación logística continua.",
+    applications: ["Centros logísticos", "Fulfillment", "Distribución"],
     color: "dark",
-    href: "/casos",
+  },
+  {
+    name: "Plataforma Aeroindustrial Bajío",
+    subtitle: "Manufactura — Querétaro",
+    text: "Superficie industrial estable para procesos de manufactura continua y operación de alta precisión.",
+    applications: ["Manufactura industrial", "Producción continua", "Alta precisión"],
+    color: "amber",
   },
 ]
 
 export function CasesSection() {
   return (
-    <section className="py-24 border-t border-white/[0.08] bg-[#1E1E18]">
+    <section className="py-24 border-t border-white/[0.08] bg-[#0D0D0B]">
       <div className="max-w-[1180px] mx-auto px-8">
         <span className="font-[var(--font-ibm-mono)] text-[0.7rem] tracking-[0.18em] uppercase text-[#E8A020] mb-4 block">
-          // Casos de éxito
+          // Proyectos ejecutados
         </span>
         <h2 className="font-[var(--font-barlow)] text-[clamp(1.8rem,3.5vw,2.9rem)] font-extrabold leading-tight text-[#FAF7F0] mb-5">
-          Casos de <em className="not-italic text-[#E8A020]">éxito</em>
+          Infraestructura de piso para{" "}
+          <em className="not-italic text-[#E8A020]">operación industrial</em>
         </h2>
-        <p className="text-[1.05rem] text-[rgba(240,234,214,0.65)] font-light leading-relaxed max-w-[680px]">
+        <p className="text-[1.05rem] text-[rgba(240,234,214,0.55)] font-light leading-relaxed max-w-[620px] mb-12">
           Proyectos ejecutados en operaciones reales donde el piso no podía fallar.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {cases.map((c, i) => (
-            <Link
+            <article
               key={i}
-              href={c.href}
-              className="group bg-white/[0.025] border border-white/[0.08] rounded-lg overflow-hidden transition-all hover:border-[rgba(232,160,32,0.3)] hover:-translate-y-0.5"
+              className="group"
             >
-              {/* Header */}
+              {/* Image placeholder */}
               <div
-                className={`h-36 flex items-end p-5 ${
-                  c.color === "blue"
+                className={`h-56 mb-5 rounded overflow-hidden relative ${
+                  c.color === "freeze"
                     ? "bg-gradient-to-br from-[#062F4A] to-[#0B4A72]"
                     : c.color === "amber"
-                    ? "bg-gradient-to-br from-[#1E1800] to-[#3D2E00]"
+                    ? "bg-gradient-to-br from-[#1A1400] to-[#2D2200]"
                     : "bg-gradient-to-br from-[#1A1A14] to-[#2C2C22]"
                 }`}
               >
-                <span className="font-[var(--font-ibm-mono)] text-[0.65rem] tracking-[0.15em] uppercase text-white/50 px-2.5 py-1 bg-white/[0.08] rounded-sm">
-                  {c.type}
-                </span>
-              </div>
-
-              {/* Body */}
-              <div className="p-5">
-                <h3 className="font-[var(--font-barlow)] text-lg font-bold text-[#FAF7F0] mb-2 leading-tight">
-                  {c.title}
-                </h3>
-                <p className="text-sm text-[#8A8878] leading-relaxed">
-                  {c.desc}
-                </p>
-
-                {/* Stats */}
-                <div className="flex gap-5 mt-4 pt-4 border-t border-white/[0.08]">
-                  {c.stats.map((stat, j) => (
-                    <div key={j}>
-                      <div className="font-[var(--font-barlow)] text-2xl font-black text-[#E8A020]">
-                        {stat.value}
-                      </div>
-                      <div className="text-[0.72rem] text-[#8A8878] font-[var(--font-ibm-mono)]">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                    c.color === "freeze" ? "bg-[#0D85C4]/20" : c.color === "amber" ? "bg-[#E8A020]/20" : "bg-white/10"
+                  }`}>
+                    <svg className={`w-6 h-6 ${c.color === "freeze" ? "text-[#0D85C4]" : c.color === "amber" ? "text-[#E8A020]" : "text-white/50"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </Link>
+
+              {/* Content */}
+              <span className="font-[var(--font-ibm-mono)] text-[0.65rem] tracking-[0.15em] uppercase text-[#8A8878] mb-2 block">
+                {c.subtitle}
+              </span>
+              <h3 className="font-[var(--font-barlow)] text-xl font-bold text-[#FAF7F0] mb-3 leading-tight">
+                {c.name}
+              </h3>
+              <p className="text-[0.9rem] text-[rgba(240,234,214,0.5)] leading-relaxed mb-4">
+                {c.text}
+              </p>
+
+              {/* Applications */}
+              <div className="flex flex-wrap gap-1.5">
+                {c.applications.map((app, j) => (
+                  <span
+                    key={j}
+                    className="font-[var(--font-ibm-mono)] text-[0.6rem] tracking-[0.06em] text-[#8A8878] px-2 py-1 bg-white/[0.04] border border-white/[0.06] rounded"
+                  >
+                    {app}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-12 text-center">
           <Link
             href="/casos"
-            className="inline-block bg-transparent text-[#F0EAD6] font-[var(--font-barlow)] font-bold text-[0.95rem] tracking-[0.06em] uppercase px-8 py-3.5 rounded border border-[rgba(240,234,214,0.25)] hover:border-[rgba(240,234,214,0.5)] hover:bg-white/[0.04] transition-all"
+            className="inline-block bg-transparent text-[#F0EAD6] font-[var(--font-barlow)] font-bold text-[0.95rem] tracking-[0.06em] uppercase px-8 py-3.5 rounded border border-[rgba(240,234,214,0.2)] hover:border-[rgba(240,234,214,0.4)] hover:bg-white/[0.03] transition-all"
           >
             Ver todos los proyectos
           </Link>
