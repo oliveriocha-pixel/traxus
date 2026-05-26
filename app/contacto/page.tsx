@@ -166,6 +166,18 @@ ${formData.detalleProyecto}`
                       <p className="text-[0.72rem] text-[#8A8878]">Síguenos en LinkedIn</p>
                     </div>
                   </a>
+
+                  {/* Direccion */}
+                  <div className="mt-4 pt-3 border-t border-white/[0.08]">
+                    <p className="font-[var(--font-ibm-mono)] text-[0.72rem] text-[#8A8878] tracking-[0.08em] uppercase mb-2">
+                      // Dirección
+                    </p>
+                    <p className="text-[0.85rem] text-[#F0EAD6]/80 leading-relaxed">
+                      Perif. Blvd. Manuel Ávila Camacho 5,<br />
+                      Lomas de Sotelo, 53390 Naucalpan de Juárez,<br />
+                      Estado de México, México.
+                    </p>
+                  </div>
                 </div>
               </div>
 

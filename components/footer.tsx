@@ -19,6 +19,7 @@ export function Footer() {
             <div className="mt-4 font-[var(--font-ibm-mono)] text-xs text-[#8A8878]/60">
               <div>hola@traxus.mx</div>
               <div>Lunes a viernes · 8:00–18:00 CST</div>
+              <div className="mt-2 leading-relaxed">Perif. Blvd. Manuel Ávila Camacho 5,<br />Lomas de Sotelo, 53390 Naucalpan de Juárez,<br />Estado de México, México.</div>
             </div>
           </div>
 
