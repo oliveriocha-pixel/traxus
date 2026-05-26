@@ -101,7 +101,7 @@ ${formData.comentariosTecnicos || "Sin comentarios adicionales"}
                 Respuesta en 48 h hábiles
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded text-[0.72rem] text-[#C4C0B0]/80 font-[var(--font-ibm-mono)]">
-                Sin compromiso
+                Contratista especializado en pisos industriales
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/[0.04] border border-white/[0.08] rounded text-[0.72rem] text-[#C4C0B0]/80 font-[var(--font-ibm-mono)]">
                 Información confidencial
