@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 const cases = [
   {
@@ -6,6 +7,8 @@ const cases = [
     subtitle: "Cadena fría — Toluca",
     text: "Piso industrial para exposición continua a humedad, bajas temperaturas y tráfico intensivo en áreas de refrigeración y congelación.",
     applications: ["Cold storage", "Cámaras de refrigeración", "Cadena fría"],
+    image: "/images/casos/cold-storage-toluca.jpg",
+    alt: "Piso industrial para operación refrigerada y almacenamiento cold storage",
     color: "freeze",
   },
   {
@@ -13,6 +16,8 @@ const cases = [
     subtitle: "Alta densidad — Estado de México",
     text: "Superficie industrial para almacenamiento de alta densidad, tráfico repetitivo de montacargas y operación logística continua.",
     applications: ["Centros logísticos", "Fulfillment", "Distribución"],
+    image: "/images/casos/centro-distribucion.jpg",
+    alt: "Piso industrial logístico para centro de distribución de alta densidad",
     color: "dark",
   },
   {
@@ -20,6 +25,8 @@ const cases = [
     subtitle: "Manufactura — Querétaro",
     text: "Superficie industrial estable para procesos de manufactura continua y operación de alta precisión.",
     applications: ["Manufactura industrial", "Producción continua", "Alta precisión"],
+    image: "/images/casos/manufactura-aeroespacial.jpg",
+    alt: "Piso industrial para manufactura aeroespacial y operación continua",
     color: "amber",
   },
 ]
@@ -45,25 +52,21 @@ export function CasesSection() {
               key={i}
               className="group"
             >
-              {/* Image placeholder */}
-              <div
-                className={`h-56 mb-5 rounded overflow-hidden relative ${
+              {/* Image */}
+              <div className="h-56 mb-5 rounded overflow-hidden relative">
+                <Image
+                  src={c.image}
+                  alt={c.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className={`absolute inset-0 ${
                   c.color === "freeze"
-                    ? "bg-gradient-to-br from-[#062F4A] to-[#0B4A72]"
+                    ? "bg-gradient-to-br from-[#062F4A]/50 to-[#0B4A72]/30"
                     : c.color === "amber"
-                    ? "bg-gradient-to-br from-[#1A1400] to-[#2D2200]"
-                    : "bg-gradient-to-br from-[#1A1A14] to-[#2C2C22]"
-                }`}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                    c.color === "freeze" ? "bg-[#0D85C4]/20" : c.color === "amber" ? "bg-[#E8A020]/20" : "bg-white/10"
-                  }`}>
-                    <svg className={`w-6 h-6 ${c.color === "freeze" ? "text-[#0D85C4]" : c.color === "amber" ? "text-[#E8A020]" : "text-white/50"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                    </svg>
-                  </div>
-                </div>
+                    ? "bg-gradient-to-br from-[#1A1400]/50 to-[#2D2200]/30"
+                    : "bg-gradient-to-br from-[#1A1A14]/50 to-[#2C2C22]/30"
+                }`} />
               </div>
 
               {/* Content */}

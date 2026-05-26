@@ -15,7 +15,7 @@ const cases = [
     subtitle: "Infraestructura de cadena fría — Toluca",
     text: "La operación requería un piso industrial preparado para exposición continua a humedad, bajas temperaturas y tráfico intensivo de montacargas dentro de áreas de refrigeración y congelación.",
     applications: ["Cold storage", "Cámaras de refrigeración", "Operación de congelación", "Industria alimentaria", "Cadena fría industrial"],
-    image: "/images/casos/piso-industrial-cold-storage-toluca.jpg",
+    image: "/images/casos/cold-storage-toluca.jpg",
     alt: "Piso industrial para operación refrigerada y almacenamiento cold storage",
     color: "freeze",
   },
@@ -24,7 +24,7 @@ const cases = [
     subtitle: "Plataforma logística de alta densidad — Estado de México",
     text: "La operación requería una superficie industrial preparada para almacenamiento de alta densidad, tráfico repetitivo de montacargas y operación logística continua dentro de un centro de distribución de gran escala.",
     applications: ["Centros logísticos", "Centros de distribución", "Fulfillment", "Almacenamiento industrial", "Tráfico intensivo de montacargas"],
-    image: "/images/casos/piso-logistico-centro-distribucion.jpg",
+    image: "/images/casos/centro-distribucion.jpg",
     alt: "Piso industrial logístico para centro de distribución de alta densidad",
     color: "dark",
   },
@@ -33,7 +33,7 @@ const cases = [
     subtitle: "Manufactura especializada — Querétaro",
     text: "El proyecto requería una superficie industrial estable para procesos de manufactura continua, circulación industrial especializada y operación de alta precisión.",
     applications: ["Manufactura industrial", "Industria especializada", "Producción continua", "Operación de precisión", "Instalaciones industriales"],
-    image: "/images/casos/piso-industrial-manufactura-aeroespacial.jpg",
+    image: "/images/casos/manufactura-aeroespacial.jpg",
     alt: "Piso industrial para manufactura aeroespacial y operación continua",
     color: "amber",
   },
@@ -42,7 +42,7 @@ const cases = [
     subtitle: "Centro de distribución industrial — Jalisco",
     text: "La operación requería un piso industrial preparado para tráfico continuo de montacargas, almacenamiento de alta densidad y operación logística intensiva dentro de una plataforma de distribución industrial.",
     applications: ["Centros logísticos", "Almacenes industriales", "Centros de distribución", "Fulfillment y operación logística", "Plataformas de almacenamiento"],
-    image: "/images/casos/piso-industrial-logistico-jalisco.jpg",
+    image: "/images/casos/logistico-jalisco.jpg",
     alt: "Plataforma logística industrial con piso de alta planicidad",
     color: "dark",
   },
@@ -51,7 +51,7 @@ const cases = [
     subtitle: "Instalación industrial y almacenamiento especializado — Estado de México",
     text: "El proyecto requería una superficie industrial preparada para almacenamiento especializado, circulación industrial y operación continua bajo condiciones de alta exigencia operacional.",
     applications: ["Almacenamiento especializado", "Instalaciones industriales", "Operación continua", "Industria química", "Manufactura industrial"],
-    image: "/images/casos/piso-industrial-almacenamiento-especializado.jpg",
+    image: "/images/casos/almacenamiento-especializado.jpg",
     alt: "Piso industrial para instalación industrial y almacenamiento especializado",
     color: "amber",
   },
@@ -60,7 +60,7 @@ const cases = [
     subtitle: "Operación logística regional — Guadalajara",
     text: "La operación requería una superficie preparada para movimiento continuo de mercancía, almacenamiento industrial de alta rotación y circulación repetitiva de montacargas dentro de áreas logísticas y de distribución.",
     applications: ["Centros de distribución", "Operación logística", "Almacenamiento industrial", "Plataformas logísticas", "Tráfico intensivo de montacargas"],
-    image: "/images/casos/piso-centro-distribucion-guadalajara.jpg",
+    image: "/images/casos/centro-distribucion-guadalajara.jpg",
     alt: "Piso industrial para centro de distribución y operación logística",
     color: "dark",
   },
@@ -99,27 +99,19 @@ export default function CasosPage() {
                 <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[600px] ${i % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                   {/* Image */}
                   <div className={`relative h-[400px] lg:h-auto ${i % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                    <Image
+                      src={c.image}
+                      alt={c.alt}
+                      fill
+                      className="object-cover"
+                    />
                     <div className={`absolute inset-0 ${
                       c.color === "freeze"
-                        ? "bg-gradient-to-br from-[#062F4A]/90 to-[#0B4A72]/80"
+                        ? "bg-gradient-to-br from-[#062F4A]/60 to-[#0B4A72]/40"
                         : c.color === "amber"
-                        ? "bg-gradient-to-br from-[#1A1400]/90 to-[#2D2200]/80"
-                        : "bg-gradient-to-br from-[#0D0D0B]/90 to-[#1A1A14]/80"
+                        ? "bg-gradient-to-br from-[#1A1400]/60 to-[#2D2200]/40"
+                        : "bg-gradient-to-br from-[#0D0D0B]/60 to-[#1A1A14]/40"
                     }`} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center px-8">
-                        <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                          c.color === "freeze" ? "bg-[#0D85C4]/20" : c.color === "amber" ? "bg-[#E8A020]/20" : "bg-white/10"
-                        }`}>
-                          <svg className={`w-8 h-8 ${c.color === "freeze" ? "text-[#0D85C4]" : c.color === "amber" ? "text-[#E8A020]" : "text-white/60"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
-                          </svg>
-                        </div>
-                        <p className="font-[var(--font-ibm-mono)] text-[0.65rem] tracking-[0.2em] uppercase text-white/40">
-                          Fotografía del proyecto
-                        </p>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Content */}
