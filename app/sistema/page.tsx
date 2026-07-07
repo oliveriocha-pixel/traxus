@@ -84,8 +84,8 @@ const segments = [
       "Compatible con AutoStore, Geek+, AMR, AGV",
     ],
     featured: false,
-    href: "/contacto",
-    cta: "Cotizar mi CEDI",
+    href: "/cedi",
+    cta: "Ver Logislab® CEDI",
   },
   {
     badge: "Nicho técnico",
@@ -98,8 +98,8 @@ const segments = [
       "Compatible con trilaterales y transelevadores",
     ],
     featured: false,
-    href: "/contacto",
-    cta: "Diseñar mi almacén VNA",
+    href: "/vna",
+    cta: "Ver Logislab® VNA",
   },
 ]
 
