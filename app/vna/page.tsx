@@ -67,6 +67,20 @@ const useCases = [
   "La seguridad a gran altura depende directamente de la planicidad del piso",
 ]
 
+const appliesYes = [
+  "Pasillos angostos operados con equipos trilaterales o transelevadores",
+  "Tolerancias de nivelación milimétricas definidas por el equipo",
+  "Racking de gran altura donde el desnivel se amplifica en la horquilla",
+  "El proveedor del equipo exige criterios Fmin certificados por pasillo",
+]
+
+const appliesNo = [
+  "Montacargas convencionales o retráctiles en pasillos anchos",
+  "Operación logística de tráfico aleatorio sin restricción milimétrica",
+  "Alta rotación y automatización de picking sin equipo trilateral",
+  "Centros de distribución de gran superficie con tráfico en todas direcciones",
+]
+
 export default function VnaPage() {
   return (
     <>
@@ -100,7 +114,7 @@ export default function VnaPage() {
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/contacto"
+                href="/contacto?tipo=logistico"
                 className="inline-block bg-[#E8A020] hover:bg-[#F5C05A] text-[#161612] font-[var(--font-barlow)] font-extrabold text-[0.95rem] tracking-[0.06em] uppercase px-8 py-3.5 rounded transition-all hover:-translate-y-0.5"
               >
                 Diseñar mi Almacén VNA
@@ -190,6 +204,56 @@ export default function VnaPage() {
           </div>
         </section>
 
+        {/* When it applies / when it doesn't */}
+        <section className="py-20 bg-[#1E1E18] border-b border-white/[0.08]">
+          <div className="max-w-[1180px] mx-auto px-8">
+            <h3 className="font-[var(--font-barlow)] text-2xl font-extrabold text-[#FAF7F0] mb-3">
+              ¿Su proyecto es VNA — o es CEDI?
+            </h3>
+            <p className="text-base font-light text-[rgba(240,234,214,0.65)] leading-relaxed max-w-[620px] mb-8">
+              VNA (very narrow aisle) es un nicho técnico. No todo almacén de alta densidad lo necesita. Antes de especificar, conviene saber si su operación realmente cae en este criterio.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* Sí aplica */}
+              <div className="bg-[rgba(94,201,138,0.06)] border border-[rgba(94,201,138,0.3)] rounded-lg p-6">
+                <h4 className="font-[var(--font-barlow)] font-bold text-sm tracking-[0.1em] uppercase text-[#5EC98A] mb-4">
+                  Cuándo SÍ aplica VNA
+                </h4>
+                <ul className="list-none">
+                  {appliesYes.map((item, i) => (
+                    <li key={i} className="text-sm text-[rgba(240,234,214,0.8)] py-1.5 flex items-start gap-2">
+                      <span className="text-[#5EC98A] shrink-0">&#10003;</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* No aplica */}
+              <div className="bg-white/[0.025] border border-white/[0.1] rounded-lg p-6">
+                <h4 className="font-[var(--font-barlow)] font-bold text-sm tracking-[0.1em] uppercase text-[#8A8878] mb-4">
+                  Cuándo NO es VNA (es CEDI)
+                </h4>
+                <ul className="list-none mb-5">
+                  {appliesNo.map((item, i) => (
+                    <li key={i} className="text-sm text-[rgba(240,234,214,0.6)] py-1.5 flex items-start gap-2">
+                      <span className="text-[#8A8878] shrink-0">&times;</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/cedi"
+                  className="inline-flex items-center gap-2 font-[var(--font-barlow)] font-bold text-sm tracking-[0.06em] uppercase text-[#E8A020] hover:text-[#F5C05A] transition-colors"
+                >
+                  Ver Logislab® CEDI →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Use Cases + CTA */}
         <section className="py-20 bg-[#161612]">
           <div className="max-w-[1180px] mx-auto px-8">
@@ -213,7 +277,7 @@ export default function VnaPage() {
                 Evaluación técnica gratuita · Respuesta en 48 h hábiles
               </p>
               <Link
-                href="/contacto"
+                href="/contacto?tipo=logistico"
                 className="inline-block bg-[#E8A020] hover:bg-[#F5C05A] text-[#161612] font-[var(--font-barlow)] font-extrabold text-[0.95rem] tracking-[0.06em] uppercase px-8 py-3.5 rounded transition-all hover:-translate-y-0.5"
               >
                 Diseñar mi Almacén VNA →

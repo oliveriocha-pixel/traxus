@@ -8,7 +8,7 @@ import { TraxusLogo } from "@/components/traxus-logo"
 const navLinks = [
   { href: "/sistema", label: "Pisos Industriales" },
   { href: "/freeze", label: "Freeze" },
-  { href: "/#soluciones", label: "Soluciones" },
+  { href: "/soluciones", label: "Soluciones" },
   { href: "/casos", label: "Proyectos" },
   { href: "/calculadora", label: "Calculadora" },
   { href: "/empresa", label: "Empresa" },

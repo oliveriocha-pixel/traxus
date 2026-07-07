@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 
@@ -23,14 +24,21 @@ const projectStages = [
   { value: "construccion", label: "Próximo a construcción" },
 ]
 
-export default function ContactoPage() {
+// Valores válidos que pueden llegar por query param (?tipo=...) desde las páginas de producto.
+const validTipos = operationTypes.map((o) => o.value).filter(Boolean)
+
+function ContactoForm() {
+  const searchParams = useSearchParams()
+  const tipoParam = searchParams.get("tipo") ?? ""
+  const initialTipo = validTipos.includes(tipoParam) ? tipoParam : ""
+
   const [formData, setFormData] = useState({
     nombreCargo: "",
     empresa: "",
     whatsapp: "",
     correo: "",
     ciudadEstado: "",
-    tipoOperacion: "",
+    tipoOperacion: initialTipo,
     areaM2: "",
     etapaProyecto: "",
     comentariosTecnicos: "",
@@ -302,6 +310,14 @@ ${formData.comentariosTecnicos || "Sin comentarios adicionales"}
         </div>
       )}
     </>
+  )
+}
+
+export default function ContactoPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#0D0D0B]" />}>
+      <ContactoForm />
+    </Suspense>
   )
 }
 

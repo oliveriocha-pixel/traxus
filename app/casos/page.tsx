@@ -3,68 +3,12 @@ import { Footer } from "@/components/footer"
 import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
+import { cases } from "@/lib/cases-data"
 
 export const metadata: Metadata = {
   title: "Proyectos | TRAXUS - Pisos Industriales de Alto Desempeño",
   description: "Pisos industriales para centros logísticos, manufactura, cold storage y operación industrial. Proyectos ejecutados en México.",
 }
-
-const cases = [
-  {
-    name: "Centro Refrigerado Bajío",
-    subtitle: "Infraestructura de cadena fría — Toluca",
-    text: "La operación requería un piso industrial preparado para exposición continua a humedad, bajas temperaturas y tráfico intensivo de montacargas dentro de áreas de refrigeración y congelación.",
-    applications: ["Cold storage", "Cámaras de refrigeración", "Operación de congelación", "Industria alimentaria", "Cadena fría industrial"],
-    image: "/images/casos/cold-storage-toluca.jpg",
-    alt: "Piso industrial para operación refrigerada y almacenamiento cold storage",
-    color: "freeze",
-  },
-  {
-    name: "Centro Logístico Norte",
-    subtitle: "Plataforma logística de alta densidad — Estado de México",
-    text: "La operación requería una superficie industrial preparada para almacenamiento de alta densidad, tráfico repetitivo de montacargas y operación logística continua dentro de un centro de distribución de gran escala.",
-    applications: ["Centros logísticos", "Centros de distribución", "Fulfillment", "Almacenamiento industrial", "Tráfico intensivo de montacargas"],
-    image: "/images/casos/centro-distribucion.jpg",
-    alt: "Piso industrial logístico para centro de distribución de alta densidad",
-    color: "dark",
-  },
-  {
-    name: "Plataforma Aeroindustrial Bajío",
-    subtitle: "Manufactura especializada — Querétaro",
-    text: "El proyecto requería una superficie industrial estable para procesos de manufactura continua, circulación industrial especializada y operación de alta precisión.",
-    applications: ["Manufactura industrial", "Industria especializada", "Producción continua", "Operación de precisión", "Instalaciones industriales"],
-    image: "/images/casos/manufactura-aeroespacial.jpg",
-    alt: "Piso industrial para manufactura aeroespacial y operación continua",
-    color: "amber",
-  },
-  {
-    name: "Plataforma Logística Occidente",
-    subtitle: "Centro de distribución industrial — Jalisco",
-    text: "La operación requería un piso industrial preparado para tráfico continuo de montacargas, almacenamiento de alta densidad y operación logística intensiva dentro de una plataforma de distribución industrial.",
-    applications: ["Centros logísticos", "Almacenes industriales", "Centros de distribución", "Fulfillment y operación logística", "Plataformas de almacenamiento"],
-    image: "/images/casos/logistico-jalisco.jpg",
-    alt: "Plataforma logística industrial con piso de alta planicidad",
-    color: "dark",
-  },
-  {
-    name: "Complejo Industrial Central",
-    subtitle: "Instalación industrial y almacenamiento especializado — Estado de México",
-    text: "El proyecto requería una superficie industrial preparada para almacenamiento especializado, circulación industrial y operación continua bajo condiciones de alta exigencia operacional.",
-    applications: ["Almacenamiento especializado", "Instalaciones industriales", "Operación continua", "Industria química", "Manufactura industrial"],
-    image: "/images/casos/almacenamiento-especializado.jpg",
-    alt: "Piso industrial para instalación industrial y almacenamiento especializado",
-    color: "amber",
-  },
-  {
-    name: "Centro de Distribución Pacífico",
-    subtitle: "Operación logística regional — Guadalajara",
-    text: "La operación requería una superficie preparada para movimiento continuo de mercancía, almacenamiento industrial de alta rotación y circulación repetitiva de montacargas dentro de áreas logísticas y de distribución.",
-    applications: ["Centros de distribución", "Operación logística", "Almacenamiento industrial", "Plataformas logísticas", "Tráfico intensivo de montacargas"],
-    image: "/images/casos/centro-distribucion-guadalajara.jpg",
-    alt: "Piso industrial para centro de distribución y operación logística",
-    color: "dark",
-  },
-]
 
 export default function CasosPage() {
   return (

@@ -40,12 +40,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-sm text-[#F0EAD6]/45 hover:text-[#FAF7F0] transition-colors">
+                <Link href="/cedi" className="text-sm text-[#F0EAD6]/45 hover:text-[#FAF7F0] transition-colors">
                   Logislab® CEDI
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-sm text-[#F0EAD6]/45 hover:text-[#FAF7F0] transition-colors">
+                <Link href="/vna" className="text-sm text-[#F0EAD6]/45 hover:text-[#FAF7F0] transition-colors">
                   Logislab® VNA
                 </Link>
               </li>
@@ -69,8 +69,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/sistema" className="text-sm text-[#F0EAD6]/45 hover:text-[#FAF7F0] transition-colors">
-                  Sistema Logislab®
+                <Link href="/soluciones" className="text-sm text-[#F0EAD6]/45 hover:text-[#FAF7F0] transition-colors">
+                  Soluciones por operación
                 </Link>
               </li>
             </ul>

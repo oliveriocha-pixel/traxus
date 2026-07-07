@@ -158,6 +158,12 @@ export default function EmpresaPage() {
           </div>
         </section>
 
+        {/*
+          Sección de equipo pendiente — reemplazar con equipo real (nombre, cargo, foto)
+          antes de reactivar. No renderizar avatares con solo iniciales ni datos inventados.
+          Bloque intencionalmente oculto hasta contar con la información real.
+        */}
+
         {/* CIERRE */}
         <section className="py-24 border-t border-white/[0.06]">
           <div className="max-w-[1100px] mx-auto px-8 text-center">

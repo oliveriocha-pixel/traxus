@@ -1,35 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-
-const cases = [
-  {
-    name: "Centro Refrigerado Bajío",
-    subtitle: "Cadena fría — Toluca",
-    text: "Piso industrial para exposición continua a humedad, bajas temperaturas y tráfico intensivo en áreas de refrigeración y congelación.",
-    applications: ["Cold storage", "Cámaras de refrigeración", "Cadena fría"],
-    image: "/images/casos/cold-storage-toluca.jpg",
-    alt: "Piso industrial para operación refrigerada y almacenamiento cold storage",
-    color: "freeze",
-  },
-  {
-    name: "Centro Logístico Norte",
-    subtitle: "Alta densidad — Estado de México",
-    text: "Superficie industrial para almacenamiento de alta densidad, tráfico repetitivo de montacargas y operación logística continua.",
-    applications: ["Centros logísticos", "Fulfillment", "Distribución"],
-    image: "/images/casos/centro-distribucion.jpg",
-    alt: "Piso industrial logístico para centro de distribución de alta densidad",
-    color: "dark",
-  },
-  {
-    name: "Plataforma Aeroindustrial Bajío",
-    subtitle: "Manufactura — Querétaro",
-    text: "Superficie industrial estable para procesos de manufactura continua y operación de alta precisión.",
-    applications: ["Manufactura industrial", "Producción continua", "Alta precisión"],
-    image: "/images/casos/manufactura-aeroespacial.jpg",
-    alt: "Piso industrial para manufactura aeroespacial y operación continua",
-    color: "amber",
-  },
-]
+import { featuredCases } from "@/lib/cases-data"
 
 export function CasesSection() {
   return (
@@ -47,15 +18,15 @@ export function CasesSection() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {cases.map((c, i) => (
+          {featuredCases.map((c, i) => (
             <article
-              key={i}
+              key={c.slug}
               className="group"
             >
               {/* Image */}
               <div className="h-56 mb-5 rounded overflow-hidden relative">
                 <Image
-                  src={c.image}
+                  src={c.image || "/placeholder.svg"}
                   alt={c.alt}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -71,18 +42,18 @@ export function CasesSection() {
 
               {/* Content */}
               <span className="font-[var(--font-ibm-mono)] text-[0.65rem] tracking-[0.15em] uppercase text-[#8A8878] mb-2 block">
-                {c.subtitle}
+                {c.subtitleShort}
               </span>
               <h3 className="font-[var(--font-barlow)] text-xl font-bold text-[#FAF7F0] mb-3 leading-tight">
                 {c.name}
               </h3>
               <p className="text-[0.9rem] text-[rgba(240,234,214,0.5)] leading-relaxed mb-4">
-                {c.text}
+                {c.textShort}
               </p>
 
               {/* Applications */}
               <div className="flex flex-wrap gap-1.5">
-                {c.applications.map((app, j) => (
+                {c.applicationsShort.map((app, j) => (
                   <span
                     key={j}
                     className="font-[var(--font-ibm-mono)] text-[0.6rem] tracking-[0.06em] text-[#8A8878] px-2 py-1 bg-white/[0.04] border border-white/[0.06] rounded"
